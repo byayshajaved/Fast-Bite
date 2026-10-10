@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#164536">
+    <title>FastBite | Order</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/" aria-label="FastBite home">
+            <span class="brand-mark" aria-hidden="true">F</span>
+            <span>Fast<span class="brand-light">Bite</span></span>
+        </a>
+        <div class="header-actions">
+            <span class="open-indicator"><span class="open-dot"></span>Taking orders</span>
+            <a class="cart-jump" href="#cart-panel">Your order <span id="header-cart-count">0</span></a>
+        </div>
+    </header>
+
+    <main class="page-shell">
+        <section class="page-intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">FASTBITE <span>/</span> MADE FRESH</p>
+                <h1 id="page-title">A good meal<br><em>starts here.</em></h1>
+            </div>
+            <div class="today-note">
+                <span class="today-sun" aria-hidden="true">●</span>
+                <span>Fresh picks<br><strong>Ready when you are</strong></span>
+            </div>
+        </section>
+
+        <div class="ordering-layout">
+            <section class="menu-section" aria-labelledby="menu-heading">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">THE LINEUP</p>
+                        <h2 id="menu-heading">Today's menu</h2>
+                    </div>
+                    <span id="menu-count" class="menu-count"></span>
+                </div>
+                <p id="menu-status" class="notice" role="status" hidden></p>
+                <div id="menu-grid" class="menu-grid" aria-live="polite"></div>
+            </section>
+
+            <aside id="cart-panel" class="cart-panel" aria-labelledby="cart-heading">
+                <div class="cart-heading">
+                    <div>
+                        <p class="eyebrow">YOUR ORDER</p>
+                        <h2 id="cart-heading">The good stuff</h2>
+                    </div>
+                    <span id="cart-count" class="cart-count">0</span>
+                </div>
+
+                <div id="cart-empty" class="cart-empty">
+                    <span class="empty-mark" aria-hidden="true">+</span>
+                    <p>Your order is waiting.</p>
+                </div>
+                <div id="cart-items" class="cart-items"></div>
+
+                <div class="cart-bottom">
+                    <div class="total-row">
+                        <span>Estimated total</span>
+                        <strong id="cart-total">Rs. 0.00</strong>
+                    </div>
+                    <button id="checkout-button" class="checkout-button" type="button" disabled>
+                        <span>Place order</span><span aria-hidden="true">&rarr;</span>
+                    </button>
+                    <p id="order-status" class="order-status" role="status" aria-live="polite"></p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <dialog id="confirmation-dialog" class="confirmation-dialog" aria-labelledby="confirmation-title">
+        <div class="confirmation-top">
+            <span class="confirmation-mark" aria-hidden="true">&#10003;</span>
+            <p class="eyebrow">ORDER RECEIVED</p>
+            <h2 id="confirmation-title">That's a good choice.</h2>
+            <p class="order-number">Order <strong id="confirmation-order-id"></strong></p>
+        </div>
+        <div id="confirmation-lines" class="confirmation-lines"></div>
+        <div class="confirmation-total">
+            <span>Order total</span>
+            <strong id="confirmation-total"></strong>
+        </div>
+        <button id="new-order-button" class="checkout-button" type="button">Start a new order</button>
+    </dialog>
+</body>
+</html>
